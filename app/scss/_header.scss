@@ -1,13 +1,18 @@
 /*стили для heder-body продублированы в общем файле 
 style.scss, почему-то иначе не работает
 */
+
+.header {
+    background-color: $backgroundColor;
+}
+
 .header__body {
     display: flex;
     gap: 72px;
     align-items: center;
     padding-top: 15px;
     padding-bottom: 15px;
-    padding-left: 175px;
+    // padding-left: 175px;
 }
 
 .header {
@@ -17,12 +22,25 @@ style.scss, почему-то иначе не работает
     }
 }
 
+.nav-icon {
+    display: none;
+}
+
 .burger-icon {
     display: none;
     width: 28px;
 }
 
 .logo-mobile {
+    display: none;
+}
+
+.call-burger,
+.contacts-burger {
+    display: none;
+}
+
+.burger__link {
     display: none;
 }
 
@@ -102,7 +120,11 @@ style.scss, почему-то иначе не работает
 
 @media(max-width:1140px) {
     .header__body {
-        gap: 30px;
+        gap: 15px;
+    }
+
+    .logo-header {
+        padding: 0 25px;
     }
 
     .menu {
@@ -113,15 +135,23 @@ style.scss, почему-то иначе не работает
     }
 
     .call-btn {
-        padding: 12px 40px;
+        padding: 12px 30px;
         font-size: 12px;
     }
 }
 
-@media(max-width:820px) {
-    .header__body {
-        gap: 15px;
+@media(max-width:920px) {
+    .call-btn {
+        padding: 19px 25px;
+        font-size: 12px;
     }
+
+    .logo-header {
+        padding: 0 10px;
+    }
+}
+
+@media(max-width:864px) {
 
     .menu {
         &__link {
@@ -129,9 +159,6 @@ style.scss, почему-то иначе не работает
         }
     }
 
-    .logo-header {
-        padding: 0 5px;
-    }
 
     .call-btn {
         display: none;
@@ -142,21 +169,21 @@ style.scss, почему-то иначе не работает
     }
 }
 
-@media(max-width:500px) {
-    .menu {
-        &__list {
-            gap: 8px;
-        }
-    }
-}
 
-@media(max-width:475px) {
+//----------------------бургер--------------------------
+@media(max-width:600px) {
     .header__body {
-        padding-top: 0;
-        padding-bottom: 0;
+        padding-top: 3px;
+        padding-bottom: 3px;
     }
 
-    //----------------------бургер--------------------------
+
+    .nav-icon {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+    }
+
     .burger-icon {
         display: block;
     }
@@ -169,24 +196,60 @@ style.scss, почему-то иначе не работает
         display: block;
     }
 
+    .menu__link {
+        font-size: 17px;
+    }
+
+    .burger__link {
+        display: block;
+    }
+
+    .contacts-burger {
+        display: block;
+        margin-top: -5px;
+        font-family: 'Montserrat';
+        font-weight: 400;
+        font-size: 16px;
+        line-height: calc(20.8/16);
+
+    }
+
+    .call-burger {
+        display: block;
+        padding-top: 80px;
+        font-family: 'Fira Sans';
+        font-weight: 400;
+        font-size: 16px;
+        line-height: calc(24/16);
+        color: $carmin;
+    }
+
     .call {
-        margin-right: 30px;
+        // margin-right: 30px;
+        display: none;
     }
 
     //меню выстраиваю в колонку и прячу влево
+    //меню бургера сотоит из двух частей, каждую позиционирую отдельно
     .menu__list {
+        justify-content: flex-start;
         align-items: flex-start;
         gap: 20px;
         flex-direction: column;
         position: fixed;
-        top: 40px;
+        top: 46px;
         left: -100%;
         width: 100%;
         height: 100%;
-        padding: 28px 15px;
+        padding: 51px 15px;
         background-color: $white;
         transition: all 0.5s ease 0s;
         z-index: 5;
+    }
+
+    .menu__list._second {
+        padding-top: 20px;
+        top: 237px;
     }
 
     //по клику на иконку показываю
@@ -196,10 +259,5 @@ style.scss, почему-то иначе не работает
 
     ._hidden {
         display: none;
-    }
-
-    .menu__item {
-        font-size: 17px;
-        line-height: calc(20.4/17);
     }
 }

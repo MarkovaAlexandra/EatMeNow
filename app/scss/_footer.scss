@@ -1,0 +1,28 @@
+.footer {
+    background-color: $backgroundColor;
+
+    &__content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center
+    }
+
+    &__logo {
+
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__info {}
+
+    &__menu {}
+
+    &__item {}
+
+    &__link {}
+
+    &__social {}
+}
+
+.container {}
